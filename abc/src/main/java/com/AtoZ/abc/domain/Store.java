@@ -1,17 +1,15 @@
 package com.AtoZ.abc.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter @Setter
 public class Store {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
+    @Column(name = "store_id")
     private Long id;
 
+    private String name;
 }

@@ -18,6 +18,6 @@ public class Category {
     private Long id;
 
     @OneToMany(mappedBy = "category")
-    private List<ItemCategory> itemCategories = new ArrayList<ItemCategory>();
+    private List<ItemCategory> itemCategories = new ArrayList<>();
 
 }

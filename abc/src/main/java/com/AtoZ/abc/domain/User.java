@@ -1,9 +1,7 @@
 package com.AtoZ.abc.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,5 +16,17 @@ public class User {
     private Long id;
 
     @OneToMany(mappedBy = "user")
-    List<Order> orders = new ArrayList<Order>();
+    List<Order> orders = new ArrayList<>();
+
+    @NotEmpty
+    private String loginId;
+    @NotEmpty
+    private String password;
+    @NotEmpty
+    private String name;
+    @NotEmpty
+    private String email;
+
+    @Embedded
+    private Address address;
 }

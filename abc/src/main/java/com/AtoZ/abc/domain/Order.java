@@ -12,6 +12,7 @@ import java.util.List;
 @Table(name = "orders")
 public class Order {
     @Id @GeneratedValue
+    @Column(name = "order_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -23,6 +24,6 @@ public class Order {
     private Delivery delivery;
 
     @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems = new ArrayList<OrderItem>();
+    private List<OrderItem> orderItems = new ArrayList<>();
 }
 
