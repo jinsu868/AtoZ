@@ -2,15 +2,13 @@ package com.AtoZ.abc.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter @Setter
+@Getter
 @Table(name = "orders")
-public class Order {
+public class Order extends BaseEntity{
     @Id @GeneratedValue
     @Column(name = "order_id")
     private Long id;

@@ -2,10 +2,9 @@ package com.AtoZ.abc.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 
 @Entity
-@Getter @Setter
+@Getter
 public class ItemCategory {
     @Id
     @GeneratedValue
