@@ -6,11 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
     private final UserService userService;
 
@@ -41,5 +40,4 @@ public class UserController {
     public void deleteUser(@RequestParam Long userId) {
         userService.deleteUser(userId);
     }
-
 }
