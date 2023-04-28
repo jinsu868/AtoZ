@@ -1,4 +1,4 @@
-package com.AtoZ.abc.domain;
+package com.AtoZ.abc.domain.Item;
 
 import jakarta.persistence.*;
 import lombok.Getter;

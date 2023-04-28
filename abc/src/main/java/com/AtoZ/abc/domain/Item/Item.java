@@ -1,5 +1,6 @@
-package com.AtoZ.abc.domain;
+package com.AtoZ.abc.domain.Item;
 
+import com.AtoZ.abc.domain.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -8,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Getter
-public class Item extends BaseEntity{
+public class Item extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
