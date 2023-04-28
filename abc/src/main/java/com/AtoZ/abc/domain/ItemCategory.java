@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public class ItemCategory {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

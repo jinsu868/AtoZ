@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public class Delivery extends BaseEntity{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Embedded
