@@ -2,13 +2,19 @@ package com.AtoZ.abc.domain.Item;
 
 import com.AtoZ.abc.domain.Item.Item;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Store {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "store_id")
