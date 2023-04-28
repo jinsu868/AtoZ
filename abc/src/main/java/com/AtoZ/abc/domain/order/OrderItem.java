@@ -1,13 +1,16 @@
-package com.AtoZ.abc.domain;
+package com.AtoZ.abc.domain.order;
 
+import com.AtoZ.abc.domain.BaseEntity;
+import com.AtoZ.abc.domain.Item.Item;
+import com.AtoZ.abc.domain.order.Order;
 import jakarta.persistence.*;
 import lombok.Getter;
 
 @Entity
 @Getter
-public class OrderItem extends BaseEntity{
+public class OrderItem extends BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_item_id")
     private Long id;
 

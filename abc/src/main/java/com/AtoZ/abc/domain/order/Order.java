@@ -1,5 +1,7 @@
-package com.AtoZ.abc.domain;
+package com.AtoZ.abc.domain.order;
 
+import com.AtoZ.abc.domain.BaseEntity;
+import com.AtoZ.abc.domain.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import java.util.ArrayList;
@@ -8,8 +10,8 @@ import java.util.List;
 @Entity
 @Getter
 @Table(name = "orders")
-public class Order extends BaseEntity{
-    @Id @GeneratedValue
+public class Order extends BaseEntity {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long id;
 
@@ -17,7 +19,7 @@ public class Order extends BaseEntity{
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
