@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 @Slf4j
@@ -18,9 +19,23 @@ public class StoreService {
     private final StoreRepository storeRepository;
     private final StoreMapper storeMapper;
 
-    public StoreDto.StoreResponseDto saveStore(StoreDto.StorePostDto storePostDto) {
+    @Transactional
+    public StoreDto.StoreResponseDto saveStore(@RequestBody StoreDto.StorePostDto storePostDto) {
         Store store = storeMapper.storePostDtoToStore(storePostDto);
         return storeMapper.storeToStoreResponseDto(storeRepository.save(store));
     }
-    
+
+    public StoreDto.StoreResponseDto findStore(Long id) {
+        Store store = storeRepository.findById(id).orElseThrow();
+        return storeMapper.storeToStoreResponseDto(store);
+    }
+
+    @Transactional
+    public StoreDto.StoreResponseDto updateStore(Long storeId, StoreDto.StoreUpdateDto storeUpdateDto) {
+        Store store = storeRepository.findById(storeId).orElseThrow();
+        store.updateStore(storeUpdateDto);
+        return storeMapper.storeToStoreResponseDto(store);
+    }
+
+
 }

@@ -25,4 +25,12 @@ public class StoreDto {
         String storeName;
         List<ItemDto.ItemResponseDto> itemResponseDtos;
     }
+
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Getter
+    public static class StoreUpdateDto {
+        String storeName;
+    }
 }

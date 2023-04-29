@@ -16,6 +16,7 @@ public interface ItemMapper {
                 .name(itemPostDto.getName())
                 .price(itemPostDto.getPrice())
                 .quantity(itemPostDto.getQuantity())
+                .itemCategories(new ArrayList<>())
                 .build();
     }
 

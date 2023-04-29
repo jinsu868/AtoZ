@@ -24,10 +24,11 @@ public interface StoreMapper {
     default StoreDto.StoreResponseDto storeToStoreResponseDto(Store store) {
         return StoreDto.StoreResponseDto.builder()
                 .storeName(store.getName())
-                .itemResponseDtos(store.getItems().stream().map(m -> itemToItemResponseDtoAtStore(m)).collect(Collectors.toList()))
+                .itemResponseDtos(new ArrayList<>())
                 .build();
     }
 
+    //필요없음.
     default ItemDto.ItemResponseDto itemToItemResponseDtoAtStore(Item item) {
         return ItemDto.ItemResponseDto.builder()
                 .name(item.getName())
