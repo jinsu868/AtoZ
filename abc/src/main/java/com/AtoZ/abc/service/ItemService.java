@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,16 +42,30 @@ public class ItemService {
         List<Category> categories = itemPostDto.getCategoryNames().stream()
                 .map(m -> categoryRepository.findByCategoryName(m)).collect(Collectors.toList());
 
+        List<ItemCategory> itemCategories = new ArrayList<>();
+
         for (Category category : categories) {
-            ItemCategory itemCategory = ItemCategory.builder()
+            itemCategories.add(ItemCategory.builder()
                     .item(item)
                     .category(category)
-                    .build();
-
-            item.getItemCategories().add(itemCategory);
-            category.getItemCategories().add(itemCategory);
+                    .build());
         }
 
+        item.setItemCategories(itemCategories);
+
+        itemRepository.save(item);
+        return itemMapper.itemToItemResponseDto(item);
+    }
+
+    public ItemDto.ItemResponseDto findItem(Long id) {
+        Item item = itemRepository.findById(id).orElseThrow();
+        return itemMapper.itemToItemResponseDto(item);
+    }
+
+    @Transactional
+    public ItemDto.ItemResponseDto updateItem(Long id, ItemDto.ItemUpdateDto itemUpdateDto) {
+        Item item = itemRepository.findById(id).orElseThrow();
+        item.updateItem(itemUpdateDto);
         return itemMapper.itemToItemResponseDto(item);
     }
 }

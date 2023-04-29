@@ -19,4 +19,16 @@ public class ItemController {
     public ItemDto.ItemResponseDto createItem(@RequestBody ItemDto.ItemPostDto itemPostDto) {
         return itemService.saveItem(itemPostDto);
     }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping
+    public ItemDto.ItemResponseDto findItem(@RequestParam Long itemId) {
+        return itemService.findItem(itemId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PatchMapping("/edit")
+    public ItemDto.ItemResponseDto updateItem(@RequestParam Long itemId, @RequestBody ItemDto.ItemUpdateDto itemUpdateDto) {
+        return itemService.updateItem(itemId, itemUpdateDto);
+    }
 }

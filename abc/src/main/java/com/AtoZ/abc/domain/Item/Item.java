@@ -1,6 +1,7 @@
 package com.AtoZ.abc.domain.Item;
 
 import com.AtoZ.abc.domain.BaseEntity;
+import com.AtoZ.abc.dto.ItemDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,7 +26,7 @@ public class Item extends BaseEntity {
     @JoinColumn(name = "store_id")
     private Store store;
 
-    @OneToMany(mappedBy = "item")
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL)
     private List<ItemCategory> itemCategories = new ArrayList<>();
 
     private int price;
@@ -41,5 +42,11 @@ public class Item extends BaseEntity {
 
     public void setItemCategories(List<ItemCategory> itemCategories) {
         this.itemCategories = itemCategories;
+    }
+
+    public void updateItem(ItemDto.ItemUpdateDto itemUpdateDto) {
+        price = itemUpdateDto.getPrice();
+        name = itemUpdateDto.getName();
+        quantity = itemUpdateDto.getQuantity();
     }
 }
