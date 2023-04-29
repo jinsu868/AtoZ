@@ -24,7 +24,7 @@ public interface StoreMapper {
     default StoreDto.StoreResponseDto storeToStoreResponseDto(Store store) {
         return StoreDto.StoreResponseDto.builder()
                 .storeName(store.getName())
-                .itemResponseDtos(new ArrayList<>())
+                .itemResponseDtos(store.getItems().stream().map(m -> itemToItemResponseDtoAtStore(m)).collect(Collectors.toList()))
                 .build();
     }
 

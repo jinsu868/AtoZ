@@ -31,4 +31,15 @@ public class ItemDto {
         private int quantity;
         private List<String> categoryNames;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ItemUpdateDto {
+        private String name;
+        private int price;
+        private int quantity;
+        //TODO :: category 변경
+    }
 }
