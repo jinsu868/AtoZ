@@ -21,7 +21,7 @@ public class Category {
     @Column(unique = true)
     private String categoryName;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category")
     private List<ItemCategory> itemCategories = new ArrayList<>();
 
     public void updateCategory(CategoryDto.CategoryUpdateDto categoryUpdateDto) {
