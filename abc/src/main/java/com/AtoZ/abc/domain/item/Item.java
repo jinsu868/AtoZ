@@ -49,4 +49,13 @@ public class Item extends BaseEntity {
         name = itemUpdateDto.getName();
         quantity = itemUpdateDto.getQuantity();
     }
+
+    public void removeStock(int orderStock) {
+        int result = quantity - orderStock;
+        if (result >= 0) {
+            quantity = result;
+        }else {
+            throw new RuntimeException();
+        }
+    }
 }
