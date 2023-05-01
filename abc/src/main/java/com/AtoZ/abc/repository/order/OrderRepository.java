@@ -1,4 +1,4 @@
-package com.AtoZ.abc.repository;
+package com.AtoZ.abc.repository.order;
 
 import com.AtoZ.abc.domain.order.Order;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,8 +1,7 @@
 package com.AtoZ.abc.domain.order;
 
 import com.AtoZ.abc.domain.BaseEntity;
-import com.AtoZ.abc.domain.Item.Item;
-import com.AtoZ.abc.domain.order.Order;
+import com.AtoZ.abc.domain.item.Item;
 import jakarta.persistence.*;
 import lombok.Getter;
 

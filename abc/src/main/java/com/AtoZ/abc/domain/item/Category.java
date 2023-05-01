@@ -1,7 +1,6 @@
-package com.AtoZ.abc.domain.Item;
+package com.AtoZ.abc.domain.item;
 
-import com.AtoZ.abc.domain.Item.ItemCategory;
-import com.AtoZ.abc.dto.CategoryDto;
+import com.AtoZ.abc.dto.item.CategoryDto;
 import jakarta.persistence.*;
 import lombok.*;
 

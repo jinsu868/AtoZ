@@ -1,8 +1,8 @@
-package com.AtoZ.abc.mapper;
+package com.AtoZ.abc.mapper.item;
 
-import com.AtoZ.abc.domain.Item.Item;
-import com.AtoZ.abc.domain.Item.ItemCategory;
-import com.AtoZ.abc.dto.ItemDto;
+import com.AtoZ.abc.domain.item.Item;
+import com.AtoZ.abc.domain.item.ItemCategory;
+import com.AtoZ.abc.dto.item.ItemDto;
 import org.mapstruct.Mapper;
 
 import java.util.ArrayList;

@@ -1,9 +1,9 @@
-package com.AtoZ.abc.service;
+package com.AtoZ.abc.service.item;
 
-import com.AtoZ.abc.domain.Item.Store;
-import com.AtoZ.abc.dto.StoreDto;
-import com.AtoZ.abc.mapper.StoreMapper;
-import com.AtoZ.abc.repository.StoreRepository;
+import com.AtoZ.abc.domain.item.Store;
+import com.AtoZ.abc.dto.item.StoreDto;
+import com.AtoZ.abc.mapper.item.StoreMapper;
+import com.AtoZ.abc.repository.item.StoreRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

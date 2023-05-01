@@ -1,4 +1,4 @@
-package com.AtoZ.abc.dto;
+package com.AtoZ.abc.dto.order;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

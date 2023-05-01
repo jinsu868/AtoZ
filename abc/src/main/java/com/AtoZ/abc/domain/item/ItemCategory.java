@@ -1,4 +1,4 @@
-package com.AtoZ.abc.domain.Item;
+package com.AtoZ.abc.domain.item;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
