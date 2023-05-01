@@ -23,7 +23,7 @@ public class User extends BaseEntity{
     @Column(name = "user_id")
     private Long id;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
     List<Order> orders = new ArrayList<>();
 
     private String loginId;
@@ -39,4 +39,7 @@ public class User extends BaseEntity{
         email = userUpdateDto.getEmail();
     }
 
+    public void addOrder(Order order) {
+        orders.add(order);
+    }
 }
