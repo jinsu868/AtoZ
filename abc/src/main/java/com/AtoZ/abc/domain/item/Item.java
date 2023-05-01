@@ -58,4 +58,8 @@ public class Item extends BaseEntity {
             throw new RuntimeException();
         }
     }
+
+    public void addStock(int quantity) {
+        this.quantity += quantity;
+    }
 }

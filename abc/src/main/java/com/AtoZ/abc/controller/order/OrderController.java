@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/orders")
@@ -18,5 +20,19 @@ public class OrderController {
     @PostMapping("/new")
     public OrderDto.OrderResponseDto createOrder(@RequestBody OrderDto.OrderPostDto orderPostDto) {
         return orderService.createOrder(orderPostDto);
+    }
+
+    //pass
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping
+    public List<OrderDto.OrderResponseDto> findOrders(@RequestParam Long userId) {
+        return orderService.findOrders(userId);
+    }
+
+    //pass
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping("/delete")
+    public void deleteOrder(@RequestParam Long orderId) {
+        orderService.deleteOrder(orderId);
     }
 }
