@@ -1,6 +1,6 @@
-package com.AtoZ.abc.repository;
+package com.AtoZ.abc.repository.item;
 
-import com.AtoZ.abc.domain.Item.Item;
+import com.AtoZ.abc.domain.item.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,7 +1,7 @@
-package com.AtoZ.abc.controller;
+package com.AtoZ.abc.controller.item;
 
-import com.AtoZ.abc.dto.CategoryDto;
-import com.AtoZ.abc.service.CategoryService;
+import com.AtoZ.abc.dto.item.CategoryDto;
+import com.AtoZ.abc.service.item.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

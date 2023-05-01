@@ -1,5 +1,6 @@
-package com.AtoZ.abc.dto;
+package com.AtoZ.abc.dto.item;
 
+import com.AtoZ.abc.dto.item.ItemDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

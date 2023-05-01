@@ -1,7 +1,6 @@
-package com.AtoZ.abc.domain.Item;
+package com.AtoZ.abc.domain.item;
 
-import com.AtoZ.abc.domain.Item.Item;
-import com.AtoZ.abc.dto.StoreDto;
+import com.AtoZ.abc.dto.item.StoreDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

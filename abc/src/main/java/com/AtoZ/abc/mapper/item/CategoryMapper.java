@@ -1,7 +1,7 @@
-package com.AtoZ.abc.mapper;
+package com.AtoZ.abc.mapper.item;
 
-import com.AtoZ.abc.domain.Item.Category;
-import com.AtoZ.abc.dto.CategoryDto;
+import com.AtoZ.abc.domain.item.Category;
+import com.AtoZ.abc.dto.item.CategoryDto;
 import org.mapstruct.Mapper;
 
 import java.util.ArrayList;

@@ -1,15 +1,13 @@
-package com.AtoZ.abc.service;
+package com.AtoZ.abc.service.item;
 
-import com.AtoZ.abc.domain.Item.Category;
-import com.AtoZ.abc.dto.CategoryDto;
-import com.AtoZ.abc.mapper.CategoryMapper;
-import com.AtoZ.abc.repository.CategoryRepository;
+import com.AtoZ.abc.domain.item.Category;
+import com.AtoZ.abc.dto.item.CategoryDto;
+import com.AtoZ.abc.mapper.item.CategoryMapper;
+import com.AtoZ.abc.repository.item.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @Service
 @Slf4j
