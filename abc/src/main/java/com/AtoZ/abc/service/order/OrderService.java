@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -51,5 +52,35 @@ public class OrderService {
         }
 
         return orderMapper.orderToOrderResponseDto(orderRepository.save(order));
+    }
+
+    //userId로 주문 내역 조회
+    public List<OrderDto.OrderResponseDto> findOrders(Long id) {
+        User user = userRepository.findById(id).orElseThrow();
+        List<Order> orders = user.getOrders();
+        List<OrderDto.OrderResponseDto> orderResponseDtos = new ArrayList<>();
+
+        for (Order order : orders) {
+            orderResponseDtos.add(orderMapper.orderToOrderResponseDto(order));
+        }
+
+        return orderResponseDtos;
+    }
+
+    //주문을 수정하는 경우는 없음. (보통 주문을 취소하고 다시 주문을 한다.)
+
+    @Transactional
+    public void deleteOrder(Long id) {
+        Order order = orderRepository.findById(id).orElseThrow();
+        List<OrderItem> orderItems = order.getOrderItems();
+        User user = order.getUser();
+
+        for (OrderItem orderItem : orderItems) {
+            orderItem.cancel();
+        }
+
+        //cascade로 Order, Delivery, OrderItem 삭제
+        user.getOrders().remove(order);
+        orderRepository.delete(order);
     }
 }
