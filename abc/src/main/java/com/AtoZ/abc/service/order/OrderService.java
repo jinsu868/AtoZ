@@ -56,8 +56,7 @@ public class OrderService {
 
     //userId로 주문 내역 조회
     public List<OrderDto.OrderResponseDto> findOrders(Long id) {
-        User user = userRepository.findById(id).orElseThrow();
-        List<Order> orders = user.getOrders();
+        List<Order> orders = orderRepository.findOrdersWithAll(id);
         List<OrderDto.OrderResponseDto> orderResponseDtos = new ArrayList<>();
 
         for (Order order : orders) {
