@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
@@ -26,7 +29,7 @@ public class StoreService {
     }
 
     public StoreDto.StoreResponseDto findStore(Long id) {
-        Store store = storeRepository.findById(id).orElseThrow();
+        Store store = storeRepository.findStoreWithItem(id);
         return storeMapper.storeToStoreResponseDto(store);
     }
 
@@ -38,4 +41,9 @@ public class StoreService {
     }
 
 
+    public List<StoreDto.StoreResponseDto> findStores() {
+        return storeRepository.findAllStoreWithItem()
+                .stream().map(s -> storeMapper.storeToStoreResponseDto(s))
+                .collect(Collectors.toList());
+    }
 }

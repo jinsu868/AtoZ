@@ -2,9 +2,12 @@ package com.AtoZ.abc.controller.item;
 
 import com.AtoZ.abc.dto.item.StoreDto;
 import com.AtoZ.abc.service.item.StoreService;
+import com.sun.net.httpserver.HttpsServer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -25,6 +28,12 @@ public class StoreController {
     @GetMapping
     public StoreDto.StoreResponseDto findStore(@RequestParam Long storeId) {
         return storeService.findStore(storeId);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/all")
+    public List<StoreDto.StoreResponseDto> findStores() {
+        return storeService.findStores();
     }
 
     //pass
