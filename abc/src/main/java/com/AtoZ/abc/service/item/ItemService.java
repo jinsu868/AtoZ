@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 @Slf4j
@@ -67,5 +68,11 @@ public class ItemService {
         Item item = itemRepository.findById(id).orElseThrow();
         item.updateItem(itemUpdateDto);
         return itemMapper.itemToItemResponseDto(item);
+    }
+
+    public List<ItemDto.ItemResponseDto> findAllByCategory(Long categoryId) {
+        return itemRepository.findAllByCategoryId(categoryId).stream()
+                .map(i -> itemMapper.itemToItemResponseDto(i))
+                .collect(Collectors.toList());
     }
 }
